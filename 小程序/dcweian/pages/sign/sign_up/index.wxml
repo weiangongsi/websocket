@@ -1,0 +1,25 @@
+<!--pages/sign/sign_up/index.wxml-->
+<view class='container'>
+  <view class='flex-center'>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </view>
+
+  <view class='mt-1'>
+    <text class='text-gray text-middle'>手机号</text>
+    <input class='border-bottom' placeholder="182********" bindinput="bindPhoneInput"/>
+  </view>
+  <view class='mt-1'>
+    <text class='text-gray text-middle'>密码</text>
+    <input password class='border-bottom' placeholder="••••••••" bindinput="bindPassInput"/>
+  </view>
+  <view class='mt-1'>
+    <text class='text-gray text-middle'>出生日期</text>
+    <picker mode="date" value="{{birthday}}" start="1950-06-01" end="2018-06-01">
+      <view class="py-1 border-bottom">{{birthday}}</view>
+    </picker>
+  </view>
+  <view class='mt-2'>
+    <button class='btn-blue-light' disabled="{{subBtnDisabled}}" bindtap="createUser">提交</button>
+  </view>
+
+</view>

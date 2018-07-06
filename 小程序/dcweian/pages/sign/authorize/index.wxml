@@ -1,0 +1,12 @@
+<!--pages/sign_up.wxml-->
+<view class='h-50 container flex-center'>
+  <button class='btn-blue-light' wx:if="{{!hasLogin&&canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>
+<view class='h-50 bg-blue-light text-white flex-center' style='flex-direction:column'>
+  <text>我们需要获取您的基本信息</text>
+  <view class='mt-4'>
+    <navigator url="/pages/index/index" open-type="switchTab" hover-class="other-navigator-hover">
+      <image style='width:26px;height:26px;' src="/common/icon/back.png"></image>
+    </navigator>
+  </view>
+</view>

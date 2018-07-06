@@ -1,0 +1,158 @@
+page {
+  height: 100%;
+  margin: 0px;
+}
+
+.userinfo-avatar {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 60rpx;
+  border-radius: 50%;
+}
+.container {
+  padding: 0px 16px;
+}
+
+.h-50 {
+  height: 50%;
+}
+
+/*bg-color  */
+
+.bg-blue-light {
+  background-color: #50d2c2;
+}
+
+/*text-color*/
+
+.text-white {
+  color: #fff;
+}
+
+.text-gray {
+  color: #acacaf;
+}
+
+/*text-size  */
+
+.text-small {
+  font-size: 12px;
+}
+
+.text-middle {
+  font-size: 14px;
+}
+
+.text-large {
+  font-size: 16px;
+}
+
+/*flex-align  */
+
+.flex-center {
+  justify-content: center;
+  display: flex; /*Flex布局*/
+  display: -webkit-flex; /* Safari */
+  align-items: center; /*指定垂直居中*/
+}
+
+/*button  */
+
+.btn-blue-light {
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 16px;
+  border-radius: 0px;
+  color: white;
+  background-color: #50d2c2;
+}
+
+/*input  */
+
+input {
+  padding: 10px 0px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #f3f3f4;
+}
+
+/*padding  */
+
+.py-0 {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+.py-1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-2 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-3 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-4 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.pt-0 {
+  padding-top: 0rem;
+}
+
+.pt-1 {
+  padding-top: 1rem;
+}
+
+.pt-2 {
+  padding-top: 2rem;
+}
+
+.pt-3 {
+  padding-top: 3rem;
+}
+
+.mt-4 {
+  padding-top: 4rem;
+}
+
+/*margin  */
+
+.mt-0 {
+  margin-top: 0rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+/*display  */
+
+.d-inline {
+  display: inline;
+}
+
+.d-block {
+  display: block;
+}
