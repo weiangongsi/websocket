@@ -40,6 +40,11 @@ public class GreetingController {
         return new Greeting("I am a msg from SubscribeMapping('/macro').");
     }
 
+    @MessageMapping("/helloServer")
+    public void helloServer(String msg) {
+        System.out.println(msg);
+    }
+
     /**
      * 测试对指定用户发送消息方法
      *
