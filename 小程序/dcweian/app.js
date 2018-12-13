@@ -27,7 +27,7 @@ App({
         }
       }
     })
-    this.getUserOpenId();
+    // this.getUserOpenId();
     // this.initSocket();
   },
   globalData: {
