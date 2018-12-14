@@ -40,7 +40,7 @@ Page({
     // 关闭连接
     function close() {
       if (socketConnected) {
-        close: wx.closeSocket()
+        wx.closeSocket()
       }
     }
 
@@ -114,10 +114,12 @@ Page({
 
     stompClient.connect({}, function(callback) {
 
+      // 主题订阅
       stompClient.subscribe('/topic/greetings', function(body, headers) {
         console.log('收到群发消息', body);
       });
 
+      // 订阅自己的
       stompClient.subscribe('/user/' + openid + '/message', function(message, headers) {
         wx.vibrateLong()
         console.log('收到只发送给我的消息:', message);
