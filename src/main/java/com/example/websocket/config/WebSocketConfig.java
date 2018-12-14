@@ -7,6 +7,14 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
+/**
+ * websocket 配置
+ * https://docs.spring.io/spring-security/site/docs/4.0.x/reference/html/websocket.html
+ * https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html
+ * https://stackoverflow.com/questions/48903044/how-to-secure-websocket-application-spring-boot-stomp
+ *
+ * @author lhy
+ */
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
