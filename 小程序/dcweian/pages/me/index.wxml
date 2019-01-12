@@ -1,6 +1,0 @@
-<!--pages/me/index.wxml-->
-<view class='container'>
-  <view class='flex-center'>
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-  </view>
-</view>
