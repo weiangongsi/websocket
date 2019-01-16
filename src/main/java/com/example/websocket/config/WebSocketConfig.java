@@ -46,7 +46,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
          * 在网页上可以通过"/gs-guide-websocket"来和服务器的WebSocket连接
          *这个和客户端创建连接时的url有关，其中setAllowedOrigins()方法表示允许连接的域名，withSockJS()方法表示支持以SockJS方式连接服务器。
          */
-        registry.addEndpoint("/gs-guide-websocket").addInterceptors(new HttpHandshakeInterceptor()).setAllowedOrigins("*");
+        registry.addEndpoint("/websocket").addInterceptors(new HttpHandshakeInterceptor()).setAllowedOrigins("*");
     }
 
 }
