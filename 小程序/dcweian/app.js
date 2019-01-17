@@ -1,5 +1,5 @@
 //app.js
-const constant = require('/common/constants')
+const constants = require('/common/constants')
 App({
   onLaunch: function() {
     var that = this
@@ -12,9 +12,48 @@ App({
         }
       }
     })
-    this.initSocket();
+    wx.login({
+      success(res) {
+        if (res.code) {
+          // 发起网络请求
+          wx.request({
+            url: constants.WECHAT_OPENID_URL,
+            data: {
+              code: res.code
+            },
+            success(res) {
+              let openid = res.data.openid
+              if(openid.length>0){
+                that.globalData.openid = openid
+                that.initSocket();
+              }else{
+                console.log('获取openid失败' + res.errMsg)
+                wx.showToast({
+                  icon: "none",
+                  title: '获取openid失败！不会连接websocket',
+                })
+              }              
+            },
+            fail(res){
+              console.log('获取openid失败!' + res.errMsg)
+              wx.showToast({
+                icon:"none",
+                title: '获取openid失败！不会连接websocket',
+              })
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+          wx.showToast({
+            icon: "none",
+            title: '登录失败！不会连接websocket',
+          })
+        }
+      }
+    })
   },
   globalData: {
+    openid: '',
     isIpx: false, //是否为iPhone x
     socketClient: null,
     socketReceiver: function(e) {} //收到消息回调
@@ -60,7 +99,7 @@ App({
     // 创建一个 WebSocket 连接
     function connect() {
       wx.connectSocket({
-        url: constant.WEBSOCKET_URL,
+        url: constants.WEBSOCKET_URL,
         header: {
           token: "lihaoyang" //从服务端获取一个token，服务端验证token是否允许连接,案例中没做限制
         }
@@ -125,14 +164,13 @@ App({
 
     this.globalData.socketClient = stompClient;
 
-    let userid = "123";
     stompClient.connect({}, function(callback) {
 
       // 订阅自己的
-      stompClient.subscribe('/user/' + userid + '/message', function(message, headers) {
+      stompClient.subscribe('/user/' + that.globalData.openid + '/message', function(message, headers) {
         console.log('收到只发送给我的消息:', message);
-        // 通知服务端收到消息
         that.globalData.callback(JSON.parse(message.body));
+        // 通知服务端收到消息
         message.ack();
       });
 

@@ -11,12 +11,14 @@
   </view>
   <view class='button-block'>
     <view>
-      <navigator url="/pages/chat/p2p/index?id=456">
+      <navigator url="/pages/chat/p2p/index">
         <i-button type="primary">双人聊天</i-button>
       </navigator>
     </view>
     <view>
-      <i-button type="success">群聊</i-button>
+      <navigator url="/pages/chat/group/index?id=789">
+        <i-button type="success">群聊</i-button>
+      </navigator>
     </view>
   </view>
   <view class='sponsor {{isIpx?"sponsor-ipx":""}}'>
