@@ -1,18 +1,32 @@
-/**index.wxss**/
-.userinfo {
+.content {
+  padding: 0 24rpx;
+}
+
+.wechat-code {
+  margin: 80rpx 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.wechat-code image {
+  width: 200rpx;
+  height: 200rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.button-block {
+  display: flex;
+  margin: 60rpx 0;
 }
 
+.button-block view {
+  width: 50%;
+}
+
+.sponsor {
+  position: absolute;
+  bottom: 60rpx;
+}
+.sponsor-ipx{
+  bottom: 120rpx;
+}

@@ -1,1 +1,25 @@
-<!--index.wxml-->
+<i-notice-bar icon="systemprompt" closable loop speed="1500">
+  I'm a singleton
+</i-notice-bar>
+<view class='content'>
+  <view class='wechat-code'>
+    <image src='/resource/image/wechat-code.png'></image>
+    <text>微信号lihaoyang1993</text>
+  </view>
+  <view>
+    <text>老爷们可以进QQ群：806893930</text>
+  </view>
+  <view class='button-block'>
+    <view>
+      <navigator url="/pages/chat/p2p/index?id=456">
+        <i-button type="primary">双人聊天</i-button>
+      </navigator>
+    </view>
+    <view>
+      <i-button type="success">群聊</i-button>
+    </view>
+  </view>
+  <view class='sponsor {{isIpx?"sponsor-ipx":""}}'>
+    <text>赞助商：大城县卫安防火材料厂 www.dcssn.com</text>
+  </view>
+</view>

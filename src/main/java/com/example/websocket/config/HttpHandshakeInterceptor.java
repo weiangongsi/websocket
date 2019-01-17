@@ -17,6 +17,14 @@ public class HttpHandshakeInterceptor implements HandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
+        /* 验证token 思路
+        HttpHeaders headers = request.getHeaders();
+        String token = headers.getFirst("token");
+        if (("lihaoyang").equals(token)) {
+            return true;
+        }else {
+            return false;
+        }*/
         return true;
     }
 

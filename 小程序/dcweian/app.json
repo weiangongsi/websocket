@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/chat/group/index",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/chat/p2p/index",
+    "pages/chat/group/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

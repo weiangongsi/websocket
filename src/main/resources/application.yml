@@ -1,4 +1,4 @@
 server:
-  port: 443
+  port: 80
   servlet:
     context-path: /
