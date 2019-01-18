@@ -38,20 +38,23 @@ page {
   padding: 10rpx 20rpx;
 }
 
-.left .text {
-  background-color: #fff;
-  margin-left: 20rpx;
-}
-
-.left .text::after {
+.text::after {
   /*用伪类写出小三角形*/
   content: '';
   width: 0;
   height: 0;
   border: 8px solid transparent;
   position: absolute;
-  border-right: 8px solid #fff;
   top: 25rpx;
+}
+
+.left .text {
+  background-color: #fff;
+  margin-left: 20rpx;
+}
+
+.left .text::after {
+  border-right: 8px solid #fff;
   left: 68rpx;
 }
 
@@ -68,14 +71,7 @@ page {
 }
 
 .right .text::after {
-  /*用伪类写出小三角形*/
-  content: '';
-  width: 0;
-  height: 0;
-  border: 8px solid transparent;
-  position: absolute;
   border-left: 8px solid #a9e77b;
-  top: 25rpx;
   right: 68rpx;
 }
 
