@@ -26,6 +26,7 @@ App({
               if(openid.length>0){
                 that.globalData.openid = openid
                 that.initSocket();
+                that.globalData.refreshCallback();
               }else{
                 console.log('获取openid失败' + res.errMsg)
                 wx.showToast({
@@ -56,7 +57,8 @@ App({
     openid: '',
     isIpx: false, //是否为iPhone x
     socketClient: null,
-    socketReceiver: function(e) {} //收到消息回调
+    socketReceiver: function(e) {}, //收到消息回调
+    refreshCallback: function ( ) { }// 全局变量刷新事件回调
   },
   // 初始化websocket
   initSocket: function() {
@@ -176,7 +178,7 @@ App({
 
       // 向服务端发送消息
       stompClient.send("/app/message", {}, JSON.stringify({
-        'msg': '我是客户端'
+        'msg': '我是客户端 ' + that.globalData.openid
       }));
     })
   },

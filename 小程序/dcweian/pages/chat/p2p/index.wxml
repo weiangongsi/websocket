@@ -1,1 +1,26 @@
+<view class='to-openid'>
+  <i-input value="{{ toOpenid }}" title="接收方" autofocus placeholder="openid" />
+</view>
+<scroll-view scroll-y style='height:{{chatContentHeight}}rpx'>
+  <view class='left'>
+    <image class='avatar' src='/resource/image/tx1.jpg'></image>
+    <view class='text'>但根据我在很多英
+    </view>
+  </view>
+  <view class='left'>
+    <image class='avatar' src='/resource/image/tx1.jpg'></image>
+    <view class='text'>1月15日，习近平总书记在中央政法工作会议上发表重要讲话，深情肯定了广大政法工作者付出的智慧和汗水
+    </view>
+  </view>
+  <view class='right'>
+    <image class='avatar' src='/resource/image/tx2.jpg'></image>
+    <view class='text'>但根据我在很多英</view>
+  </view>
+</scroll-view>
 
+<view class="send-block {{isIpx ?'send-block-ipx':''}}">
+  <input type="text" value="{{msg}}" confirm-type="send" bindconfirm="sendText" bindinput="bindMsgInput" cursor-spacing="6"></input>
+  <view class='send-block-button'>
+    <image src='/resource/image/add.png'></image>
+  </view>
+</view>

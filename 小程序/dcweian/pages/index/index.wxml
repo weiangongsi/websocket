@@ -21,7 +21,10 @@
       </navigator>
     </view>
   </view>
+  <view class='openid' bindtap='copyOpenid'>你的openid：{{openid}}</view>
   <view class='sponsor {{isIpx?"sponsor-ipx":""}}'>
     <text>赞助商：大城县卫安防火材料厂 www.dcssn.com</text>
   </view>
 </view>
+
+<i-message id="message" />
