@@ -9,7 +9,7 @@
   <view>
     <text>老爷们可以进QQ群：806893930</text>
   </view>
-  <view class='button-block'>
+  <view class='button-block' wx:if="{{authed}}">
     <view>
       <navigator url="/pages/chat/p2p/index">
         <i-button type="primary">双人聊天</i-button>
@@ -21,7 +21,13 @@
       </navigator>
     </view>
   </view>
+
+  <view class='auth-block' wx:if="{{!authed}}">
+    <i-button open-type="getUserInfo" bind:getuserinfo="getUserInfo" type="warning">一键授权</i-button>
+  </view>
+
   <view class='openid' bindtap='copyOpenid'>你的openid：{{openid}}</view>
+
   <view class='sponsor {{isIpx?"sponsor-ipx":""}}'>
     <text>赞助商：大城县卫安防火材料厂 www.dcssn.com</text>
   </view>

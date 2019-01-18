@@ -12,6 +12,7 @@ App({
         }
       }
     })
+    // 获取openid
     wx.login({
       success(res) {
         if (res.code) {
@@ -23,23 +24,23 @@ App({
             },
             success(res) {
               let openid = res.data.openid
-              if(openid.length>0){
+              if (openid.length > 0) {
                 that.globalData.openid = openid
                 that.initSocket();
                 that.globalData.refreshCallback();
-              }else{
+              } else {
                 console.log('获取openid失败' + res.errMsg)
                 wx.showToast({
                   icon: "none",
-                  title: '获取openid失败！不会连接websocket',
+                  title: '获取openid失败！不会连接websocket' + res.errMsg,
                 })
-              }              
+              }
             },
-            fail(res){
+            fail(res) {
               console.log('获取openid失败!' + res.errMsg)
               wx.showToast({
-                icon:"none",
-                title: '获取openid失败！不会连接websocket',
+                icon: "none",
+                title: '获取openid失败！不会连接websocket' + res.errMsg,
               })
             }
           })
@@ -58,7 +59,7 @@ App({
     isIpx: false, //是否为iPhone x
     socketClient: null,
     socketReceiver: function(e) {}, //收到消息回调
-    refreshCallback: function ( ) { }// 全局变量刷新事件回调
+    refreshCallback: function() {} // 全局变量刷新事件回调
   },
   // 初始化websocket
   initSocket: function() {
@@ -171,7 +172,7 @@ App({
       // 订阅自己的
       stompClient.subscribe('/user/' + that.globalData.openid + '/message', function(message, headers) {
         console.log('收到只发送给我的消息:', message);
-        that.globalData.callback(JSON.parse(message.body));
+        that.globalData.socketReceiver(JSON.parse(message.body));
         // 通知服务端收到消息
         message.ack();
       });

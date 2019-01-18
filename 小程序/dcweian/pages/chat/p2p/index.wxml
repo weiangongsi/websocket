@@ -1,21 +1,13 @@
 <view class='to-openid'>
-  <i-input value="{{ toOpenid }}" title="接收方" autofocus placeholder="openid" />
+  <i-input value="{{ toOpenid }}" bind:change="bindToOpenid" maxlength='100' title="接收方" autofocus placeholder="openid" />
 </view>
 <scroll-view scroll-y style='height:{{chatContentHeight}}rpx'>
-  <view class='left'>
-    <image class='avatar' src='/resource/image/tx1.jpg'></image>
-    <view class='text'>但根据我在很多英
+  <block wx:for="{{msgList}}" wx:key="unique"  wx:for-item="message">
+    <view class='{{message.from==openid?"right":"left"}}'>
+      <image class='avatar' src='{{message.user.avatarUrl}}'></image>
+      <view class='text'>{{message.content}}</view>
     </view>
-  </view>
-  <view class='left'>
-    <image class='avatar' src='/resource/image/tx1.jpg'></image>
-    <view class='text'>1月15日，习近平总书记在中央政法工作会议上发表重要讲话，深情肯定了广大政法工作者付出的智慧和汗水
-    </view>
-  </view>
-  <view class='right'>
-    <image class='avatar' src='/resource/image/tx2.jpg'></image>
-    <view class='text'>但根据我在很多英</view>
-  </view>
+  </block>
 </scroll-view>
 
 <view class="send-block {{isIpx ?'send-block-ipx':''}}">

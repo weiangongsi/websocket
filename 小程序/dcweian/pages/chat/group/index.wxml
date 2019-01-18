@@ -1,2 +1,18 @@
-<!--pages/chat/group/index.wxml-->
-<text>pages/chat/group/index.wxml</text>
+<view class='to-openid'>
+  <i-input value="{{ toOpenid }}" bind:change="bindToOpenid" maxlength='100' title="接收方" autofocus placeholder="openid" />
+</view>
+<scroll-view scroll-y style='height:{{chatContentHeight}}rpx'>
+  <block wx:for="{{msgList}}" wx:key="unique"  wx:for-item="message">
+    <view class='{{message.from==openid?"right":"left"}}'>
+      <image class='avatar' src='{{message.user.avatarUrl}}'></image>
+      <view class='text'>{{message.content}}</view>
+    </view>
+  </block>
+</scroll-view>
+
+<view class="send-block {{isIpx ?'send-block-ipx':''}}">
+  <input type="text" value="{{msg}}" confirm-type="send" bindconfirm="sendText" bindinput="bindMsgInput" cursor-spacing="6"></input>
+  <view class='send-block-button'>
+    <image src='/resource/image/add.png'></image>
+  </view>
+</view>

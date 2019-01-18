@@ -7,10 +7,20 @@ Page({
   data: {
     isIpx: app.globalData.isIpx,
     openid: '', // 自己的openid
+    authed: false
   },
   //页面加载事件
   onLoad: function(e) {
     let that = this
+    // 判断是否存储了用户信息
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+        that.setData({
+          authed: true
+        })
+      },
+    })
     app.globalData.refreshCallback = function() {
       that.setData({
         openid: app.globalData.openid
@@ -37,6 +47,18 @@ Page({
         type: 'error',
         duration: 1
       });
+    }
+  },
+  //获取用户信息
+  getUserInfo(res) {
+    if (res.detail.errMsg == "getUserInfo:ok") {
+      wx.setStorage({
+        key: 'userInfo',
+        data: res.detail.userInfo,
+      })
+      this.setData({
+        authed: true
+      })
     }
   }
 

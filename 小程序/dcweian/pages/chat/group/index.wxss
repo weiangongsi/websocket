@@ -1,1 +1,111 @@
-/* pages/chat/group/index.wxss */
+/**index.wxss**/
+
+page {
+  background-color: #f2f2f2;
+}
+
+/* 顶部 */
+
+.to-openid {
+  height: 90rpx;
+  overflow: hidden;
+}
+
+/* 中部 */
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+
+.text {
+  color: #000;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  margin: 20rpx;
+  position: relative;
+}
+
+.text {
+  max-width: 460rpx;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+}
+
+.text::after {
+  /*用伪类写出小三角形*/
+  content: '';
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  position: absolute;
+  top: 25rpx;
+}
+
+.left .text {
+  background-color: #fff;
+  margin-left: 20rpx;
+}
+
+.left .text::after {
+  border-right: 8px solid #fff;
+  left: 68rpx;
+}
+
+.right {
+  display: flex;
+  margin: 20rpx;
+  position: relative;
+  flex-direction: row-reverse;
+}
+
+.right .text {
+  background-color: #a9e77b;
+  margin-right: 20rpx;
+}
+
+.right .text::after {
+  border-left: 8px solid #a9e77b;
+  right: 68rpx;
+}
+
+/* 底部 */
+
+.send-block {
+  position: absolute;
+  background-color: #f9f9f9;
+  bottom: 0;
+  padding: 30rpx;
+  width: 100%;
+  display: flex;
+}
+
+.send-block-button {
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.send-block-button image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.send-block-ipx {
+  padding-bottom: 64rpx;
+}
+
+.send-block input {
+  width: 600rpx;
+  height: 75rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  font-size: 32rpx;
+  color: #000;
+}
