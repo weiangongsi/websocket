@@ -4,13 +4,6 @@ page {
   background-color: #f2f2f2;
 }
 
-/* 顶部 */
-
-.to-openid {
-  height: 90rpx;
-  overflow: hidden;
-}
-
 /* 中部 */
 
 .avatar {
