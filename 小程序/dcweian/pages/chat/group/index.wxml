@@ -13,3 +13,5 @@
     <image src='/resource/image/add.png'></image>
   </view>
 </view>
+
+<i-message id="message" />

@@ -40,8 +40,13 @@ Page({
       title: '群聊（房间id：' + roomId + '）',
     })
     // 订阅群聊
-    subscribeChatGroup = app.globalData.socketClient.subscribe('/topic/chat-group/' + roomId, function(message, headers) {
+    subscribeChatGroup = app.globalData.socketClient.subscribe('/topic/chat-group/' + roomId, function(message) {
       let msg = JSON.parse(message.body);
+      let msgList = that.data.msgList
+      msgList.push(msg)
+      that.setData({
+        msgList: msgList
+      })
       console.log('收到群消息:', msg);
       message.ack();
     });
@@ -78,14 +83,12 @@ Page({
   },
   // 发送文本消息
   sendText() {
+    let roomId = this.data.roomId
     let message = new Message(this.data.openid, this.data.toOpenid, 1);
     message.content = this.data.msg;
     message.user = this.data.user;
-    
-    let msgList = this.data.msgList
-    msgList.push(message)
+    app.globalData.socketClient.send("/app/chat-group/" + roomId, {}, JSON.stringify(message));
     this.setData({
-      msgList: msgList,
       msg: ''
     })
   }
