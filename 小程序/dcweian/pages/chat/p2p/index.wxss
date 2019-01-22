@@ -69,7 +69,7 @@ page {
 }
 
 .image {
-  padding: 0 20rpx 0 0;
+  padding: 0 20rpx;
 }
 
 .image image {
@@ -84,7 +84,6 @@ page {
   background-color: #f9f9f9;
   bottom: 0;
   padding: 30rpx;
-  width: 100%;
   display: flex;
 }
 

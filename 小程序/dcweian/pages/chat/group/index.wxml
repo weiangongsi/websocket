@@ -6,7 +6,9 @@
         <view class='text'>{{message.content}}</view>
       </block>
       <block wx:elif="{{message.type==2}}">
-        <view class='image'><image src='{{message.content}}' data-url='{{message.content}}' mode="widthFix" bindtap='previewImage'></image></view>
+        <view class='image'>
+          <image src='{{message.content}}' data-url='{{message.content}}' mode="widthFix" bindtap='previewImage'></image>
+        </view>
       </block>
     </view>
   </block>

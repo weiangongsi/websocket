@@ -121,6 +121,17 @@ Page({
       msgList: msgList,
       msg: ''
     })
+  },
+  //预览图片
+  previewImage(e) {
+    let imageMsgArr = this.data.msgList.filter(msg => {
+      return msg.type == 2;
+    })
+    let imageArr = Array.from(imageMsgArr, img => img.content)
+    wx.previewImage({
+      current: e.target.dataset.url, // 当前显示图片的http链接
+      urls: imageArr // 需要预览的图片http链接列表
+    })
   }
 
 })

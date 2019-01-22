@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://192.168.3.107:443/"
+const API_BASE_URL = "https://xcx.dcssn.com/"
 const WEBSOCKET_URL = "wss://xcx.dcssn.com/websocket"
 
 // 上传文件地址
