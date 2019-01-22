@@ -4,13 +4,6 @@ page {
   background-color: #f2f2f2;
 }
 
-/* 顶部 */
-
-.to-openid {
-  height: 90rpx;
-  overflow: hidden;
-}
-
 /* 中部 */
 
 .avatar {
@@ -28,7 +21,7 @@ page {
 
 .left {
   display: flex;
-  margin: 20rpx;
+  margin: 30rpx 20rpx;
   position: relative;
 }
 
@@ -60,7 +53,7 @@ page {
 
 .right {
   display: flex;
-  margin: 20rpx;
+  margin: 30rpx 20rpx;
   position: relative;
   flex-direction: row-reverse;
 }
@@ -73,6 +66,15 @@ page {
 .right .text::after {
   border-left: 8px solid #a9e77b;
   right: 68rpx;
+}
+
+.image {
+  padding: 0 20rpx 0 0;
+}
+
+.image image {
+  width: 250rpx;
+  border-radius: 6rpx;
 }
 
 /* 底部 */

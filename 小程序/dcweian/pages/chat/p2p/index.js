@@ -1,5 +1,6 @@
 //获取应用实例
 const app = getApp()
+const constants = require('../../../common/constants')
 class Message {
   from = ''; //发送方
   to = ''; // 接收方
@@ -80,7 +81,46 @@ Page({
       msgList: msgList,
       msg: ''
     })
+  },
+  // 选择图片
+  chooseImage() {
+    let that = this
+    wx.chooseImage({
+      count: 9,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        const tempFilePaths = res.tempFilePaths
+        tempFilePaths.forEach((v, k) => {
+          // 上传图片
+          wx.uploadFile({
+            url: constants.UPLOAD_URL,
+            filePath: v,
+            name: 'file',
+            formData: {},
+            success(res) {
+              if (res.statusCode == 200) {
+                let imageUrl = constants.API_BASE_URL + res.data
+                that.sendImage(imageUrl)
+              }
+            }
+          })
+        })
+      }
+    })
+  },
+  // 发送图片消息
+  sendImage(url) {
+    let message = new Message(this.data.openid, this.data.toOpenid, 2);
+    message.content = url;
+    message.user = this.data.user;
+    app.sendSocketMessage(message);
+    let msgList = this.data.msgList
+    msgList.push(message)
+    this.setData({
+      msgList: msgList,
+      msg: ''
+    })
   }
-
 
 })
