@@ -2,6 +2,6 @@ server:
   port: 80
   servlet:
     context-path: /
-spring:
-  profiles:
-    include: pro
+wechat:
+  appid:
+  secret:
