@@ -4,7 +4,7 @@
 ##### 小程序：
 
 - project.config.json 中， appid 换成你自己的appid
-- /common/constants.js 中，API_BASE_URL 和 WEBSOCKET_URL 将域名改成你自己的域名或ip，注意测试的时候手机和电脑要在同一个网段
+- /common/constants.js 中，API_BASE_URL 和 WEBSOCKET_URL 将域名改成你自己的域名或ip，局域网测试的时候手机和电脑要在同一个网段
 
 ##### 后台：
 - application.yml 中，wechat.appid 和 wechat.secret 改为你自己的
