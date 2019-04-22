@@ -13,5 +13,6 @@
 
 前期准备：https://blog.csdn.net/u011164906/article/details/80704828
 
+stomp-websocket文档：http://jmesnil.net/stomp-websocket/doc/
 
 qq群 806893930
