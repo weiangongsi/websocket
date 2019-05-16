@@ -5,6 +5,7 @@ function setConnected(connected) {
     $("#disconnect").prop("disabled", !connected);
     if (connected) {
         $("#conversation").show();
+        console.log("Connected");
     }
     else {
         $("#conversation").hide();
@@ -13,7 +14,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new WebSocket('wss://xcx.dcssn.com/gs-guide-websocket');
+    var socket = new WebSocket('wss://xcx.dcssn.com/websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
@@ -24,10 +25,14 @@ function connect() {
 
         let userid = 1;
         stompClient.subscribe('/user/' + userid + '/message', function (greeting) {
-            // alert(JSON.parse(greeting.body).content);
             showGreeting(JSON.parse(greeting.body).content);
         });
     });
+
+    socket.onclose = function () {
+        stompClient.disconnect();
+        connect()
+    };
 }
 
 function disconnect() {
