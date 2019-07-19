@@ -6,24 +6,23 @@ function setConnected(connected) {
     if (connected) {
         $("#conversation").show();
         console.log("Connected");
-    }
-    else {
+    } else {
         $("#conversation").hide();
     }
     $("#greetings").html("");
 }
 
 function connect() {
-    var socket = new WebSocket('wss://xcx.dcssn.com/websocket');
+    var socket = new WebSocket('ws://127.0.0.1/websocket');
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
+    stompClient.connect('lihaoyang', "123", function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/greetings', function (greeting) {
             showGreeting(JSON.parse(greeting.body).content);
         });
 
-        let userid = 1;
+        let userid = 2;
         stompClient.subscribe('/user/' + userid + '/message', function (greeting) {
             showGreeting(JSON.parse(greeting.body).content);
         });

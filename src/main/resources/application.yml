@@ -2,6 +2,9 @@ server:
   port: 80
   servlet:
     context-path: /
+spring:
+  thymeleaf:
+    cache: false
 wechat:
   appid:
   secret:
